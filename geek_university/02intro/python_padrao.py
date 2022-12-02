@@ -16,6 +16,7 @@ def computar(fim, inicio=1):
     pos = inicio
     fator = 1_000 * 1_000
     while pos < fim:
+        pos += 1
         math.sqrt((pos - fator) * (pos - fator))
 
 
@@ -23,4 +24,5 @@ if __name__ == "__main__":
     main()
 
 """
+Terminou em 13.01 segundos.
 """
