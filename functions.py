@@ -31,10 +31,24 @@ def sorting_key(file_):
     return os.stat(file_).st_mtime
 
 def order_list(files):
-    if d.get(idx_zone):
-        ...
+    return sorted(files, key=sorting_key)
+
+def generate_list_to_process(files):
+    files_to_process = []
+    files_to_move = []
+
+    if d.get("teste"):
+        files = generate_list_for_column(d.get("teste"), files)
+        for k, v in files.items():
+            ordered_list = order_list(v)
+            files_to_process.append(ordered_list.pop())
+            files_to_move.extend(ordered_list)
     else:
-        return sorted(files, key=sorting_key, reverse=True)
+        ordered_list = order_list(files)
+        files_to_process.append(ordered_list.pop())
+        files_to_move.extend(ordered_list)
+    return files_to_process, files_to_move
+
 
 
 def latest_file(files):
@@ -50,9 +64,3 @@ def latest_file(files):
 
     return recent_file
 
-
-print(
-    latest_file(
-        ["assets/file-01.txt", "assets/file-02.txt", "assets/file.txt"]
-    )
-)
