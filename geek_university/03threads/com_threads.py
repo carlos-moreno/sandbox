@@ -6,7 +6,7 @@ from queue import Queue
 
 
 def gerador_de_dados(queue):
-    for i in range(1, 11):
+    for i in range(1, 21):
         print(colorama.Fore.GREEN + f"Dados {i}", flush=True)
         time.sleep(2)
         queue.put(i)
